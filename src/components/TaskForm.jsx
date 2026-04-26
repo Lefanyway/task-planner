@@ -17,21 +17,19 @@ function TaskForm({ onAdicionarTarefa }) {
     }
 
     onAdicionarTarefa(novaTarefa)
-
     setTitulo('')
     setDia('Segunda')
     setPrioridade('baixa')
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="formulario" onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Título da tarefa"
         value={titulo}
         onChange={evento => setTitulo(evento.target.value)}
       />
-
       <select value={dia} onChange={evento => setDia(evento.target.value)}>
         <option>Segunda</option>
         <option>Terça</option>
@@ -41,13 +39,11 @@ function TaskForm({ onAdicionarTarefa }) {
         <option>Sábado</option>
         <option>Domingo</option>
       </select>
-
       <select value={prioridade} onChange={evento => setPrioridade(evento.target.value)}>
         <option value="baixa">Baixa</option>
         <option value="média">Média</option>
         <option value="alta">Alta</option>
       </select>
-
       <button type="submit">Adicionar</button>
     </form>
   )

@@ -1,15 +1,19 @@
 function TaskCard({ tarefa, onAlternar, onDeletar }) {
+  const classePrioridade = `prioridade-${tarefa.priority}`
+  const classeConcluida = tarefa.done ? 'concluida' : ''
+
   return (
-    <div>
+    <div className={`card-tarefa ${classePrioridade} ${classeConcluida}`}>
       <p>{tarefa.title}</p>
       <p>Prioridade: {tarefa.priority}</p>
-      <p>Status: {tarefa.done ? 'Concluída' : 'Pendente'}</p>
-      <button onClick={() => onAlternar(tarefa.id)}>
-        {tarefa.done ? 'Reabrir' : 'Concluir'}
-      </button>
-      <button onClick={() => onDeletar(tarefa.id)}>
-        Deletar
-      </button>
+      <div className="botoes-card">
+        <button onClick={() => onAlternar(tarefa.id)}>
+          {tarefa.done ? 'Reabrir' : 'Concluir'}
+        </button>
+        <button onClick={() => onDeletar(tarefa.id)}>
+          Deletar
+        </button>
+      </div>
     </div>
   )
 }

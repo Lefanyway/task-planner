@@ -4,7 +4,7 @@ function WeekBoard({ tarefas, onAlternarTarefa, onDeletarTarefa }) {
   const diasDaSemana = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo']
 
   return (
-    <div>
+    <div className="quadro-semanal">
       {diasDaSemana.map(dia => (
         <DayColumn
           key={dia}

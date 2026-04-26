@@ -3,7 +3,7 @@ function Summary({ tarefas }) {
   const pendentes = tarefas.filter(tarefa => tarefa.done === false)
 
   return (
-    <div>
+    <div className="resumo">
       <p>Total: {tarefas.length}</p>
       <p>Concluídas: {concluidas.length}</p>
       <p>Pendentes: {pendentes.length}</p>
