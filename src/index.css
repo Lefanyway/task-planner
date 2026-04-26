@@ -124,3 +124,25 @@ header h1 {
   text-align: center;
   padding: 8px;
 }
+
+.filtros {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.filtros button {
+  padding: 6px 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #f4f5f7;
+}
+
+.filtros button:hover {
+  background-color: #0052cc;
+  color: white;
+}

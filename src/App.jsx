@@ -7,6 +7,7 @@ import WeekBoard from './components/WeekBoard'
 
 function App() {
   const [tarefas, setTarefas] = useState(tarefasIniciais)
+  const [filtro, setFiltro] = useState('todas')
 
   function adicionarTarefa(novaTarefa) {
     const novaLista = [...tarefas, novaTarefa]
@@ -28,13 +29,36 @@ function App() {
     setTarefas(novaLista)
   }
 
+  function limparConcluidas() {
+    const novaLista = tarefas.filter(tarefa => tarefa.done === false)
+    setTarefas(novaLista)
+  }
+
+  function tarefasFiltradas() {
+    if (filtro === 'concluidas') {
+      return tarefas.filter(tarefa => tarefa.done === true)
+    }
+    if (filtro === 'pendentes') {
+      return tarefas.filter(tarefa => tarefa.done === false)
+    }
+    return tarefas
+  }
+
   return (
     <div>
       <Header />
       <Summary tarefas={tarefas} />
       <TaskForm onAdicionarTarefa={adicionarTarefa} />
+
+      <div className="filtros">
+        <button onClick={() => setFiltro('todas')}>Todas</button>
+        <button onClick={() => setFiltro('pendentes')}>Pendentes</button>
+        <button onClick={() => setFiltro('concluidas')}>Concluídas</button>
+        <button onClick={limparConcluidas}>Limpar concluídas</button>
+      </div>
+
       <WeekBoard
-        tarefas={tarefas}
+        tarefas={tarefasFiltradas()}
         onAlternarTarefa={alternarTarefa}
         onDeletarTarefa={deletarTarefa}
       />
