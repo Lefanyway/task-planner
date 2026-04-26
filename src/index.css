@@ -57,20 +57,17 @@ header h1 {
 }
 
 .quadro-semanal {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 12px;
   padding: 16px;
-  overflow-x: auto;
 }
 
 .coluna-dia {
   background-color: #ebecf0;
   border-radius: 8px;
   padding: 12px;
-  min-width: 180px;
-  flex: 1;
 }
-
 .coluna-dia h2 {
   font-size: 14px;
   margin-bottom: 12px;
