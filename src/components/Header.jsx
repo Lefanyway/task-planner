@@ -1,9 +1,9 @@
-function Header(){
-    return(
-        <header>
-            <h1>Task Planner</h1>
-        </header>
-    )
+function Header() {
+  return (
+    <header>
+      <h1>Planejador Semanal de Tarefas</h1>
+    </header>
+  )
 }
 
 export default Header

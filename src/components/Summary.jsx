@@ -1,10 +1,14 @@
-function Summary() {
-    return (
-        <div>
-            <h2>Resumo do Dia</h2>
-            <p>Hoje, você tem 5 tarefas pendentes. Lembre-se de revisar suas prioridades e concluir as tarefas mais importantes primeiro. Mantenha o foco e tenha um ótimo dia!</p>
-        </div>
-    )
+function Summary({ tarefas }) {
+  const concluidas = tarefas.filter(tarefa => tarefa.done === true)
+  const pendentes = tarefas.filter(tarefa => tarefa.done === false)
+
+  return (
+    <div>
+      <p>Total: {tarefas.length}</p>
+      <p>Concluídas: {concluidas.length}</p>
+      <p>Pendentes: {pendentes.length}</p>
+    </div>
+  )
 }
 
 export default Summary

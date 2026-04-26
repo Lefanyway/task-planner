@@ -1,10 +1,21 @@
-function WeekBoard() {
-    return (
-        <div>
-            <h2>Quadro Semanal</h2>
-            <p>Aqui você pode organizar suas tarefas para a semana. Arraste e solte as tarefas para os dias correspondentes e mantenha-se organizado!</p>
-        </div>
-    )
+import DayColumn from './DayColumn'
+
+function WeekBoard({ tarefas, onAlternarTarefa, onDeletarTarefa }) {
+  const diasDaSemana = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo']
+
+  return (
+    <div>
+      {diasDaSemana.map(dia => (
+        <DayColumn
+          key={dia}
+          dia={dia}
+          tarefas={tarefas}
+          onAlternarTarefa={onAlternarTarefa}
+          onDeletarTarefa={onDeletarTarefa}
+        />
+      ))}
+    </div>
+  )
 }
 
 export default WeekBoard
